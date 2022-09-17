@@ -1,0 +1,23 @@
+[
+  {
+    "isDepositEnabled": true,
+    "icon": "base64_encoded_svg",
+    "name": "Australian Dollar",
+    "code": "Aud",
+    "Ticker": "AUD"
+  },
+  {
+    "isDepositEnabled": true,
+    "icon": "base64_encoded_svg",
+    "name": "New Zealand Dollar",
+    "code": "Nzd",
+    "Ticker": "NZD"
+  },
+  {
+    "isDepositEnabled": true,
+    "icon": "base64_encoded_svg",
+    "name": "Singapore Dollar",
+    "code": "Sgd",
+    "Ticker": "SGD"
+  }
+]

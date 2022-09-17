@@ -1,0 +1,14 @@
+[
+  {
+    "balanceDecimals": 12500.25,
+    "code": "Aud"
+  },
+  {
+    "balanceDecimals": 2000.01,
+    "code": "Nzd"
+  },
+  {
+    "balanceDecimals": 1000,
+    "code": "Sgd"
+  }
+]
