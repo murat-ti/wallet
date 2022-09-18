@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../models/account/account.dart';
 import '../init/network/dio_manager.dart';
 import '../models/currency/currency.dart';
 import '../provider/exceptions.dart';
@@ -12,7 +11,6 @@ final currencyRepository = Provider<CurrencyRepositoryAPI>((ref) => CurrencyRepo
 
 abstract class CurrencyRepository {
   Future<List<Currency>> getCurrencies();
-  Future<List<Account>> getAccounts(String currency);
 }
 
 class CurrencyRepositoryAPI implements CurrencyRepository {
@@ -29,27 +27,7 @@ class CurrencyRepositoryAPI implements CurrencyRepository {
 
       //load from json
       final response = await rootBundle.loadString("assets/json/currencies.json");
-
       return Currency.currencyListFromJson(response);
-    } on DioError catch (error) {
-      throw DataException.fromDioError(error);
-    }
-  }
-
-  @override
-  Future<List<Account>> getAccounts(String currency) async {
-    try {
-      /*final response = await read(clientProvider).get('/accounts.php');
-      print('response');
-      print(response.data);*/
-      //print(Currency.fromJson(response.data));
-
-      //return Currency.currencyListFromJson(response.data);
-
-      //load from json
-      final response = await rootBundle.loadString("assets/json/accounts.json");
-
-      return Account.accountListFromJson(response);
     } on DioError catch (error) {
       throw DataException.fromDioError(error);
     }

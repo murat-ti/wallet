@@ -3,7 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../core/models/currency/currency.dart';
 import '../../core/provider/currency_provider.dart';
 import '../shared/utils/constants.dart';
-import '../shared/widgets/bottom_sheet_modal/bottom_dialog.dart';
 import '../shared/widgets/dialog/dialog.dart';
 import '../shared/widgets/tile/currency_tile.dart';
 
@@ -59,13 +58,7 @@ class HomePage extends HookConsumerWidget {
               overrides: [
                 currentCurrency.overrideWithValue(data[idx]),
               ],
-              child: CurrencyTile(
-                onTap: () {
-                  if (data[idx].isDepositEnabled) {
-                    showBottomDialog(context, data[idx].code);
-                  }
-                },
-              ),
+              child: const CurrencyTile(),
             ),
             separatorBuilder: (context, index) {
               return const Divider(

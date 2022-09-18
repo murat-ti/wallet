@@ -1,16 +1,21 @@
-# wallet
+# Wallet
 
-A new Flutter Wallet app with Riverpod state management
+A Flutter Wallet app with Riverpod state management
+
+Features:
+- Riverpod
+- Dio + Exception handler
+- SVG
+- Code generation
+- Json annotation + serialization
+- Bash script for code generation
+- Api Test
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This is testing project for learning riverpod state management.
 
-A few resources to get you started if this is your first Flutter project:
+![Home page](screenshots/01-home.png)
+![Home page action](screenshots/02-home-action.png)
+![Details page](screenshots/03-details.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

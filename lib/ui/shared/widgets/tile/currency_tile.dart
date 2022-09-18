@@ -5,6 +5,7 @@ import '../../../../core/models/currency/currency.dart';
 import '../../../../core/provider/account_provider.dart';
 import '../../utils/constants.dart';
 import '../../utils/image_path_svg.dart';
+import '../bottom_sheet_modal/bottom_dialog.dart';
 
 final currentCurrency = Provider<Currency>((ref) => const Currency(
       name: '',
@@ -15,13 +16,8 @@ final currentCurrency = Provider<Currency>((ref) => const Currency(
     ));
 
 class CurrencyTile extends HookConsumerWidget {
-  //final WalletModel record;
-  final Function()? onTap;
 
-  const CurrencyTile({
-    Key? key,
-    this.onTap,
-  }) : super(key: key);
+  const CurrencyTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -42,7 +38,11 @@ class CurrencyTile extends HookConsumerWidget {
               error: (error, stk) => Center(child: Text(error.toString()))),
         ],
       ),
-      onTap: onTap,
+      onTap: () {
+        if (currency.isDepositEnabled) {
+          showBottomDialog(context, currency.code);
+        }
+      },
     );
   }
 
