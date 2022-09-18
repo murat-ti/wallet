@@ -11,11 +11,12 @@ class NavigationRoute {
   Route<dynamic> generateRoute(RouteSettings args) {
     switch (args.name) {
       case NavigationConstants.homeView:
-        return normalNavigate(HomePage(), const RouteSettings(name: NavigationConstants.homeView));
+        return normalNavigate(const HomePage(), const RouteSettings(name: NavigationConstants.homeView));
       case NavigationConstants.depositView:
-        return normalNavigate(const DepositPage(), RouteSettings(name: NavigationConstants.depositView, arguments: args.arguments));
+        return normalNavigate(
+            const DepositPage(), RouteSettings(name: NavigationConstants.depositView, arguments: args.arguments));
       default:
-        return normalNavigate(HomePage(), const RouteSettings(name: NavigationConstants.homeView));
+        return normalNavigate(const HomePage(), const RouteSettings(name: NavigationConstants.homeView));
     }
   }
 

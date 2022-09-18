@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../core/models/deposit/fields.dart';
 import '../../utils/constants.dart';
 import '../../utils/image_path_svg.dart';
 
 class DetailsTable extends StatelessWidget {
-  const DetailsTable({Key? key, required this.details, this.flexWidth = 3.0}) : super(key: key);
-  final Map<String, String> details;
+  const DetailsTable({Key? key, required this.fields, this.flexWidth = 3.0}) : super(key: key);
+  final List<Fields> fields;
   final double flexWidth;
   static const bottomPadding = 26.0;
 
@@ -31,8 +32,7 @@ class DetailsTable extends StatelessWidget {
           0: const FlexColumnWidth(1),
           1: FlexColumnWidth(flexWidth),
         },
-        children:
-            details.entries.map((e) => buildTableRow(keyText: e.key, valueText: e.value)).toList(),
+        children: fields.map((e) => buildTableRow(keyText: e.field, valueText: e.value)).toList(),
       ),
     );
   }

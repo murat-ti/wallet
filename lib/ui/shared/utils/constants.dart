@@ -3,6 +3,11 @@ import 'package:intl/intl.dart';
 
 var number = NumberFormat("#,##0.00", "en_US");
 
+class ApplicationApi {
+  static const androidBaseUrl = 'http://192.168.56.1/api';
+  static const iosBaseUrl = 'http://localhost/api';
+}
+
 class ApplicationColors {
   static const scaffoldBackgroundColor = Color(0xff082157);
   static const dividerColor = Color(0xff071D4A);
@@ -21,10 +26,10 @@ class ApplicationSizes {
   static const bigDividerThickness = 4.0;
 }
 
-class Currencies {
+/*class Currencies {
   static const title = {
     'aud': 'Australian dollar',
     'nzd': 'New Zealand Dollar',
     'sgd': 'Singapore Dollar',
   };
-}
+}*/

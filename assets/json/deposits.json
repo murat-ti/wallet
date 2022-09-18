@@ -1,0 +1,102 @@
+[
+    {
+      "code": "Aud",
+      "details": [
+        {
+            "title": "PayID / Osko",
+            "fields": [
+                {
+                   "field": "PayID", 
+                   "value": "pay@independentreserve.com"
+                },
+                {
+                    "field": "Reference", 
+                    "value": "100073549758163"
+                 }
+            ],
+            "information": [
+                {
+                    "description": "PayID / Osko deposits will be processed and credited to your account within 1 business day."
+                },
+                {
+                    "description": "An AUD 2.50 processing fee will be debited from your Independent Reserve account for deposits below AUD 1,000.00"
+                },
+                {
+                    "description": "Your first PayID / Osko deposit may be delayed due to initial processing by your bank."
+                },
+                {
+                    "description": "PayID / Osko deposits must be made from a debit account held in your own name. Credit card payments, or payments from accounts in different names will not be processed."
+                },
+                {
+                    "description": "The Reference must be provided as a transaction description as shown above for funds to be credited to your account."
+                }
+            ]
+        },
+        {
+            "title": "Bank transfer",
+            "fields": [
+                {
+                   "field": "Account name", 
+                   "value": "Independent Reserve Pty Ltd"
+                },
+                {
+                    "field": "BSB", 
+                    "value": "806 043"
+                },
+                {
+                    "field": "Account number", 
+                    "value": "100242639"
+                 },
+                 {
+                     "field": "Reference", 
+                     "value": "ATFPMRL"
+                 }
+            ],
+            "information": [
+                {
+                    "description": "We do not accept cash deposits made at a branch."
+                },
+                {
+                    "description": "Deposits of AUD 100.00 and above are free. An AUD 0.99 processing fee will be debited from your Independent Reserve account for deposits below this amount. Electronic Funds Transfer deposits are usually processed within one business day, but please allow at least two business days before contacting our support staff. Please note that banks do not process Electronic Funds Transfer transactions on weekends or public holidays."
+                },
+                {
+                    "description": "Electronic Funds Transfer Payments must be made from a debit account held in your own name. Credit card payments, or payments from accounts in different names will not be processed."
+                },
+                {
+                    "description": "The Reference must be provided exactly as shown for funds to be credited to your account."
+                }
+            ]
+        }
+      ]
+    },
+    {
+        "code": "Sgd",
+        "details": [
+          {
+              "title": "SGD Transfer",
+              "fields": [
+                  {
+                     "field": "Bank name", 
+                     "value": "Development Bank of Singapore (DBS)"
+                  },
+                  {
+                      "field": "Account number", 
+                      "value": "8851603591142708"
+                  },
+                  {
+                      "field": "Payee", 
+                      "value": "Independent Reserve SG"
+                   }
+              ],
+              "information": [
+                  {
+                      "description": "An SGD 2.50 processing fee will be debited from your Independent Reserve account for deposits below SGD 1,000.00"
+                  },
+                  {
+                      "description": "Deposits must be made from an account held in your own name. Credit card payments, or payments from accounts in different names will not be processed."
+                  }
+              ]
+          }
+        ]
+    }
+]

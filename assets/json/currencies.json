@@ -7,7 +7,7 @@
     "Ticker": "AUD"
   },
   {
-    "isDepositEnabled": true,
+    "isDepositEnabled": false,
     "icon": "base64_encoded_svg",
     "name": "New Zealand Dollar",
     "code": "Nzd",

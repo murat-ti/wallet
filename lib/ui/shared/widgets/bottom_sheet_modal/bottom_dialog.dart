@@ -4,7 +4,7 @@ import '../../../../core/navigation/navigation_constants.dart';
 import '../../../../core/navigation/navigation_service.dart';
 import '../../utils/constants.dart';
 
-void showBottomDialog(BuildContext context) {
+void showBottomDialog(BuildContext context, String currency) {
   const borderRadius = 15.0;
   const blurSigma = 2.0;
 
@@ -19,18 +19,20 @@ void showBottomDialog(BuildContext context) {
     //backgroundColor: Colors.transparent,
     builder: (context) => BackdropFilter(
       filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
-      child: _buildBottomDialog(context),
+      child: _buildBottomDialog(context, currency),
     ),
   );
 }
 
-Widget _buildBottomDialog(BuildContext context) {
+Widget _buildBottomDialog(BuildContext context, String currency) {
   const depositText = 'Deposit';
   const cancelText = 'Cancel';
   const dialogHeight = 218.0;
 
-  TextStyle? textStyle =
-      Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: ApplicationSizes.bigTextSize, fontWeight: FontWeight.w400);
+  TextStyle? textStyle = Theme.of(context)
+      .textTheme
+      .bodyText1
+      ?.copyWith(fontSize: ApplicationSizes.bigTextSize, fontWeight: FontWeight.w400);
 
   return SizedBox(
     height: dialogHeight,
@@ -42,7 +44,7 @@ Widget _buildBottomDialog(BuildContext context) {
           child: Text(depositText, style: textStyle),
           onPressed: () {
             Navigator.of(context).pop();
-            NavigationService.instance.navigateToPage(path: NavigationConstants.depositView);
+            NavigationService.instance.navigateToPage(path: NavigationConstants.depositView, data: currency);
           },
         ),
         const Divider(

@@ -20,8 +20,12 @@ Currency _$CurrencyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Currency {
-  String get currency => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
+  bool get isDepositEnabled => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get code => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Ticker')
+  String get ticker => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +37,12 @@ mixin _$Currency {
 abstract class $CurrencyCopyWith<$Res> {
   factory $CurrencyCopyWith(Currency value, $Res Function(Currency) then) =
       _$CurrencyCopyWithImpl<$Res>;
-  $Res call({String currency, double amount});
+  $Res call(
+      {bool isDepositEnabled,
+      String icon,
+      String name,
+      String code,
+      @JsonKey(name: 'Ticker') String ticker});
 }
 
 /// @nodoc
@@ -46,18 +55,33 @@ class _$CurrencyCopyWithImpl<$Res> implements $CurrencyCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? currency = freezed,
-    Object? amount = freezed,
+    Object? isDepositEnabled = freezed,
+    Object? icon = freezed,
+    Object? name = freezed,
+    Object? code = freezed,
+    Object? ticker = freezed,
   }) {
     return _then(_value.copyWith(
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
+      isDepositEnabled: isDepositEnabled == freezed
+          ? _value.isDepositEnabled
+          : isDepositEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      icon: icon == freezed
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      ticker: ticker == freezed
+          ? _value.ticker
+          : ticker // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -68,7 +92,12 @@ abstract class _$$_CurrencyCopyWith<$Res> implements $CurrencyCopyWith<$Res> {
           _$_Currency value, $Res Function(_$_Currency) then) =
       __$$_CurrencyCopyWithImpl<$Res>;
   @override
-  $Res call({String currency, double amount});
+  $Res call(
+      {bool isDepositEnabled,
+      String icon,
+      String name,
+      String code,
+      @JsonKey(name: 'Ticker') String ticker});
 }
 
 /// @nodoc
@@ -83,18 +112,33 @@ class __$$_CurrencyCopyWithImpl<$Res> extends _$CurrencyCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currency = freezed,
-    Object? amount = freezed,
+    Object? isDepositEnabled = freezed,
+    Object? icon = freezed,
+    Object? name = freezed,
+    Object? code = freezed,
+    Object? ticker = freezed,
   }) {
     return _then(_$_Currency(
-      currency: currency == freezed
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
+      isDepositEnabled: isDepositEnabled == freezed
+          ? _value.isDepositEnabled
+          : isDepositEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      icon: icon == freezed
+          ? _value.icon
+          : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      ticker: ticker == freezed
+          ? _value.ticker
+          : ticker // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -102,19 +146,31 @@ class __$$_CurrencyCopyWithImpl<$Res> extends _$CurrencyCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Currency implements _Currency {
-  const _$_Currency({required this.currency, required this.amount});
+  const _$_Currency(
+      {required this.isDepositEnabled,
+      required this.icon,
+      required this.name,
+      required this.code,
+      @JsonKey(name: 'Ticker') required this.ticker});
 
   factory _$_Currency.fromJson(Map<String, dynamic> json) =>
       _$$_CurrencyFromJson(json);
 
   @override
-  final String currency;
+  final bool isDepositEnabled;
   @override
-  final double amount;
+  final String icon;
+  @override
+  final String name;
+  @override
+  final String code;
+  @override
+  @JsonKey(name: 'Ticker')
+  final String ticker;
 
   @override
   String toString() {
-    return 'Currency(currency: $currency, amount: $amount)';
+    return 'Currency(isDepositEnabled: $isDepositEnabled, icon: $icon, name: $name, code: $code, ticker: $ticker)';
   }
 
   @override
@@ -122,16 +178,23 @@ class _$_Currency implements _Currency {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Currency &&
-            const DeepCollectionEquality().equals(other.currency, currency) &&
-            const DeepCollectionEquality().equals(other.amount, amount));
+            const DeepCollectionEquality()
+                .equals(other.isDepositEnabled, isDepositEnabled) &&
+            const DeepCollectionEquality().equals(other.icon, icon) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality().equals(other.ticker, ticker));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(currency),
-      const DeepCollectionEquality().hash(amount));
+      const DeepCollectionEquality().hash(isDepositEnabled),
+      const DeepCollectionEquality().hash(icon),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(ticker));
 
   @JsonKey(ignore: true)
   @override
@@ -148,15 +211,25 @@ class _$_Currency implements _Currency {
 
 abstract class _Currency implements Currency {
   const factory _Currency(
-      {required final String currency,
-      required final double amount}) = _$_Currency;
+      {required final bool isDepositEnabled,
+      required final String icon,
+      required final String name,
+      required final String code,
+      @JsonKey(name: 'Ticker') required final String ticker}) = _$_Currency;
 
   factory _Currency.fromJson(Map<String, dynamic> json) = _$_Currency.fromJson;
 
   @override
-  String get currency;
+  bool get isDepositEnabled;
   @override
-  double get amount;
+  String get icon;
+  @override
+  String get name;
+  @override
+  String get code;
+  @override
+  @JsonKey(name: 'Ticker')
+  String get ticker;
   @override
   @JsonKey(ignore: true)
   _$$_CurrencyCopyWith<_$_Currency> get copyWith =>

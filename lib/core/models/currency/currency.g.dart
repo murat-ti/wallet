@@ -7,12 +7,18 @@ part of 'currency.dart';
 // **************************************************************************
 
 _$_Currency _$$_CurrencyFromJson(Map<String, dynamic> json) => _$_Currency(
-      currency: json['currency'] as String,
-      amount: (json['amount'] as num).toDouble(),
+      isDepositEnabled: json['isDepositEnabled'] as bool,
+      icon: json['icon'] as String,
+      name: json['name'] as String,
+      code: json['code'] as String,
+      ticker: json['Ticker'] as String,
     );
 
 Map<String, dynamic> _$$_CurrencyToJson(_$_Currency instance) =>
     <String, dynamic>{
-      'currency': instance.currency,
-      'amount': instance.amount,
+      'isDepositEnabled': instance.isDepositEnabled,
+      'icon': instance.icon,
+      'name': instance.name,
+      'code': instance.code,
+      'Ticker': instance.ticker,
     };

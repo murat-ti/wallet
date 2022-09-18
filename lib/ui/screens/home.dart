@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../core/models/wallet_model.dart';
+import '../../core/models/currency/currency.dart';
 import '../../core/provider/currency_provider.dart';
 import '../shared/utils/constants.dart';
 import '../shared/widgets/bottom_sheet_modal/bottom_dialog.dart';
 import '../shared/widgets/dialog/dialog.dart';
-import '../shared/widgets/tile/wallet_record_tile.dart';
+import '../shared/widgets/tile/currency_tile.dart';
 
 class HomePage extends HookConsumerWidget {
   static const _headerText = 'Wallet';
   static const _fontSize = 30.0;
   static const _dividerThickness = 1.0;
 
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('Before build');
     final currencies = ref.watch(currenciesProvider);
-    print(currencies);
     return WillPopScope(
       onWillPop: () => onWillPop(context),
       child: Scaffold(
@@ -30,32 +30,7 @@ class HomePage extends HookConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildHeader(context),
-                //buildListView(context),
-                Expanded(
-                  child: currencies.when(
-                    data: (data) {
-                      /*return Container(
-                        child: ListView.builder(
-                          padding: EdgeInsets.only(top: 0.0),
-                          itemCount: data.length,
-                          itemBuilder: (ctx, int idx) => ProviderScope(
-                            overrides: [
-                              currentPair.overrideWithValue(data[idx]),
-                            ],
-                            child: const PairTile(),
-                          ),
-                        ),
-                      );*/
-                      return Text('It is loaded ${data.length}');
-                    },
-                    loading: () => Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                    error: (error, e) => Center(
-                      child: Text(error.toString()),
-                    ),
-                  ),
-                )
+                buildListView(context, currencies),
               ],
             ),
           ),
@@ -74,26 +49,39 @@ class HomePage extends HookConsumerWidget {
     );
   }
 
-  ListView buildListView(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        for (int i = 0; i < 3; i++)
-          Column(
-            children: [
-              WalletRecordTile(
-                record: WalletModel(currency: 'aud', amount: i * 3251),
+  Widget buildListView(BuildContext context, AsyncValue<List<Currency>> currencies) {
+    return Expanded(
+      child: currencies.when(
+        data: (data) {
+          return ListView.separated(
+            itemCount: data.length,
+            itemBuilder: (ctx, int idx) => ProviderScope(
+              overrides: [
+                currentCurrency.overrideWithValue(data[idx]),
+              ],
+              child: CurrencyTile(
                 onTap: () {
-                  showBottomDialog(context);
+                  if (data[idx].isDepositEnabled) {
+                    showBottomDialog(context, data[idx].code);
+                  }
                 },
               ),
-              const Divider(
+            ),
+            separatorBuilder: (context, index) {
+              return const Divider(
                 color: ApplicationColors.dividerColor,
                 thickness: _dividerThickness,
-              ),
-            ],
-          )
-      ],
+              );
+            },
+          );
+        },
+        loading: () => const Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+        error: (error, e) => Center(
+          child: Text(error.toString()),
+        ),
+      ),
     );
   }
 }
